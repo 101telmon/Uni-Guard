@@ -19,7 +19,6 @@ export async function fetchTickets() {
     if (!response.ok) {
         console.error("Could not fetch tickets from database.");
     }
-
     return response.json();
 }
 

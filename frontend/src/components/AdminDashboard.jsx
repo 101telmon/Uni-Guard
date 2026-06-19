@@ -11,13 +11,19 @@ import {
     Select,
     MenuItem,
     Menu,
+    Button,
+    Tooltip,
 } from "@mui/material";
+import RefreshIcon from "@mui/icons-material/Refresh";
 import { useState, useEffect } from "react";
 import { fetchTickets, updateTicketStatus } from "../services/api";
+import { DASHBOARD_REFRESH_RATE } from "../utils/constants.js";
 
 export default function AdminDashboard() {
     const [tickets, setTickets] = useState([]);
+    const [cooldown, setCooldown] = useState(false);
 
+    // Getting tickets as soon as site loads
     useEffect(() => {
         const getTickets = async () => {
             try {
@@ -52,6 +58,23 @@ export default function AdminDashboard() {
         });
     };
 
+    // Temporary, will improve
+    const autoRefreshDashboard = () => {
+        setInterval(() => {
+            fetchTickets();
+        }, DASHBOARD_REFRESH_RATE * 1000);
+    };
+
+    const handleManualRefresh = () => {
+        setCooldown(true);
+        fetchTickets();
+        setTimeout(() => {
+            setCooldown(false);
+        }, 5000);
+    };
+
+    autoRefreshDashboard();
+
     const showTickets = () => {
         return tickets.map((ticket) => (
             <TableRow key={ticket.id}>
@@ -85,9 +108,36 @@ export default function AdminDashboard() {
                 padding: 2,
             }}
         >
-            <Typography variant="h5" gutterBottom>
-                Dashboard
-            </Typography>
+            <Box
+                sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                }}
+            >
+                <Typography variant="h5" gutterBottom>
+                    Dashboard
+                </Typography>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                    <Typography variant="caption">
+                        auto-refreshes every 30s.
+                    </Typography>
+                    <Tooltip
+                        describeChild
+                        title="You can refresh manually every 5 seconds."
+                    >
+                        <span>
+                            <Button
+                                variant="contained"
+                                startIcon={<RefreshIcon />}
+                                onClick={handleManualRefresh}
+                                disabled={cooldown}
+                            >
+                                Refresh
+                            </Button>
+                        </span>
+                    </Tooltip>
+                </Box>
+            </Box>
             <TableContainer component={Paper} sx={{ marginTop: 3 }}>
                 <Table>
                     <TableHead sx={{ backgroundColor: "#f5f5f5" }}>

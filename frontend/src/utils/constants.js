@@ -7,3 +7,4 @@ export const CAMPUS_LOCATIONS = [
     "Management School",
     "Margaret Fell",
 ];
+export const DASHBOARD_REFRESH_RATE = 30; // In seconds, we * 1000 in the setInterval
