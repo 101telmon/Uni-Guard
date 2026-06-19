@@ -31,6 +31,7 @@ export default function Form() {
         category: "",
         urgency: "",
         description: "",
+        status: "To Do",
     });
 
     /// Handlers
