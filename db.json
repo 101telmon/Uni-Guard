@@ -1,53 +1,52 @@
 {
     "tickets": [
         {
+            "id": "1",
             "location": "Library",
             "category": "Plumbing",
             "urgency": "Medium",
             "description": "There is a leak in B Floor!",
-            "status": "To Do",
-            "id": "z0UKPVL892w"
+            "status": "To Do"
         },
         {
+            "id": "2",
             "location": "InfoLab Building",
             "category": "Electrical",
             "urgency": "Low",
             "description": "One of the screens in B80 is blank.",
-            "status": "To Do",
-            "id": "dacWRYbtvQ0"
+            "status": "To Do"
         },
         {
+            "id": "3",
             "location": "George Fox Building",
             "category": "Electrical",
             "urgency": "High",
             "description": "The lights went out in the middle of my lecture!!!",
-            "status": "To Do",
-            "id": "ENcywvXup-E"
+            "status": "To Do"
         },
         {
+            "id": "4",
             "location": "Management School",
             "category": "Plumbing",
             "urgency": "Low",
             "description": "One of the toilets on the A Floor is blocked.",
-            "status": "To Do",
-            "id": "cVj9L4uxby0"
+            "status": "To Do"
         },
         {
+            "id": "5",
             "location": "Margaret Fell",
             "category": "IT/Network",
             "urgency": "High",
             "description": "The projector has suddenly stopped working, I was in the middle of a lecture here!",
-            "status": "To Do",
-            "id": "3kRBMOWUOK8"
+            "status": "To Do"
         },
         {
+            "id": "6",
             "location": "InfoLab Building",
             "category": "Plumbing",
             "urgency": "Low",
             "description": "There is no tap water in one of the B Floor bathrooms.",
-            "status": "To Do",
-            "id": "OvtjpaO_CBA"
+            "status": "To Do"
         }
-    ],
-    "$schema": "./node_modules/json-server/schema.json"
+    ]
 }
