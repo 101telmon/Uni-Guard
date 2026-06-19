@@ -1,5 +1,7 @@
+const BASE_URL = "https://my-json-server.typicode.com/101telmon/Uni-Guard";
+
 export async function submitTicket(formData) {
-    const response = await fetch("http://localhost:8000/tickets", {
+    const response = await fetch(`${BASE_URL}/tickets`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -14,7 +16,7 @@ export async function submitTicket(formData) {
 }
 
 export async function fetchTickets() {
-    const response = await fetch(`http://localhost:8000/tickets`);
+    const response = await fetch(`${BASE_URL}/tickets`);
 
     if (!response.ok) {
         console.error("Could not fetch tickets from database.");
@@ -23,7 +25,7 @@ export async function fetchTickets() {
 }
 
 export async function updateTicketStatus(ticketID, newStatus) {
-    const response = await fetch(`http://localhost:8000/tickets`, {
+    const response = await fetch(`${BASE_URL}/tickets/${ticketID}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
