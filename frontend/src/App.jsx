@@ -1,7 +1,6 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { Typography } from "@mui/material";
 import StudentForm from "./components/StudentForm";
-import AdminDashboard from "./components/AdminDashboard";
 import FullTable from "./components/FullTable";
 import Profile from "./components/Profile";
 import AdminPage from "./components/AdminPage";

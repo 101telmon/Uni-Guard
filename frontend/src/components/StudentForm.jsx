@@ -14,6 +14,7 @@ import {
     Menu,
     Typography,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
 /// Custom React Imports
 import IssueContext from "./IssueContext.jsx";
@@ -109,6 +110,12 @@ export default function Form() {
                     marginTop: 4,
                 }}
             >
+                <Button variant="contained" component={Link} to="/admin/">
+                    To Admin View
+                </Button>
+                <Typography variant="h3" color="primary" gutterBottom>
+                    UniGuard
+                </Typography>
                 <Typography variant="h6" gutterBottom>
                     Report an issue.
                 </Typography>

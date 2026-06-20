@@ -14,7 +14,7 @@
             "category": "Electrical",
             "urgency": "Low",
             "description": "One of the screens in B80 is blank.",
-            "status": "To Do"
+            "status": "In Progress"
         },
         {
             "id": "3",
@@ -38,7 +38,7 @@
             "category": "IT/Network",
             "urgency": "High",
             "description": "The projector has suddenly stopped working, I was in the middle of a lecture here!",
-            "status": "To Do"
+            "status": "Completed"
         },
         {
             "id": "6",

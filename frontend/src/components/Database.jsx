@@ -116,7 +116,7 @@ export default function AdminDashboard() {
                 }}
             >
                 <Typography variant="h5" gutterBottom>
-                    Dashboard
+                    Full Table View
                 </Typography>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                     <Typography variant="caption">
