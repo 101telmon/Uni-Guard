@@ -15,6 +15,7 @@ import {
     Tooltip,
 } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
+import Sidebar from "./Sidebar.jsx";
 import { useState, useEffect } from "react";
 import { fetchTickets, updateTicketStatus } from "../services/api";
 import { DASHBOARD_REFRESH_RATE } from "../utils/constants.js";
