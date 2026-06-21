@@ -1,4 +1,4 @@
-const BASE_URL = "https://my-json-server.typicode.com/101telmon/Uni-Guard";
+const BASE_URL = "http://localhost:8080";
 
 export async function submitTicket(formData) {
     const response = await fetch(`${BASE_URL}/tickets`, {
@@ -25,12 +25,12 @@ export async function fetchTickets() {
 }
 
 export async function updateTicketStatus(ticketID, newStatus) {
-    const response = await fetch(`${BASE_URL}/tickets/${ticketID}`, {
+    const response = await fetch(`${BASE_URL}/tickets/${ticketID}/status`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ status: newStatus }),
+        body: JSON.stringify(newStatus),
     });
     if (!response.ok) {
         console.error("Could not update status for a ticket.");

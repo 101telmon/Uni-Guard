@@ -17,8 +17,8 @@ public class Ticket {
 
     public Ticket() {}
 
-    public String getID() { return id; }
-    public void setID(String id) { this.id = id; }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
     public String getLocation() { return location; }
     public void setLocation(String location) { this.location = location; }
