@@ -24,18 +24,25 @@ export default function AdminDashboard() {
     const [tickets, setTickets] = useState([]);
     const [cooldown, setCooldown] = useState(false);
 
+    const loadData = async () => {
+        try {
+            const data = await fetchTickets();
+            setTickets(data);
+        } catch (error) {
+            console.error("Error loading tickets: ", error);
+        }
+    };
+
     // Getting tickets as soon as site loads
     useEffect(() => {
-        const getTickets = async () => {
-            try {
-                const data = await fetchTickets();
-                setTickets(data);
-            } catch (error) {
-                console.error("Error loading tickets: ", error);
-            }
-        };
+        loadData();
 
-        getTickets();
+        const timer = setInterval(() => {
+            loadData();
+        }, DASHBOARD_REFRESH_RATE * 1000);
+
+        // Clears timer if you leave admin page
+        return () => clearInterval(timer);
     }, []);
 
     const handleStatusChange = async (ticketID, newStatus) => {
@@ -66,9 +73,10 @@ export default function AdminDashboard() {
         }, DASHBOARD_REFRESH_RATE * 1000);
     };
 
-    const handleManualRefresh = () => {
+    const handleManualRefresh = async () => {
         setCooldown(true);
-        fetchTickets();
+        await loadData();
+
         setTimeout(() => {
             setCooldown(false);
         }, 5000);
