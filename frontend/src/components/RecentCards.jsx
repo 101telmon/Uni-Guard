@@ -7,37 +7,52 @@ import {
     Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { fetchTickets } from "../services/api";
 
 export default function RecentCards() {
+    const [recentTickets, setRecentTickets] = useState([]);
+
+    useEffect(() => {
+        const loadRecentTickets = async () => {
+            try {
+                const data = await fetchTickets();
+                // Grab last 3 and reverse them to show newest ticket first, not last
+                const latestThree = data.slice(-3).reverse();
+                setRecentTickets(latestThree);
+            } catch (error) {
+                console.error("Error loading recent tickets: ", error);
+            }
+        };
+
+        loadRecentTickets();
+    }, []);
+
     return (
         <Stack spacing={1} sx={{ minWidth: "300px" }}>
-            <Card variant="outlined">
-                <CardContent>
-                    <Typography sx={{ color: "text.secondary", fontSize: 14 }}>
-                        InfoLab Building
-                    </Typography>
-                    <Typography variant="h5">Low</Typography>
-                    <Typography variant="body2">Plumbing</Typography>
-                </CardContent>
-            </Card>
-            <Card variant="outlined">
-                <CardContent>
-                    <Typography sx={{ color: "text.secondary", fontSize: 14 }}>
-                        Margaret Fell
-                    </Typography>
-                    <Typography variant="h5">High</Typography>
-                    <Typography variant="body2">IT/Network</Typography>
-                </CardContent>
-            </Card>
-            <Card variant="outlined">
-                <CardContent>
-                    <Typography sx={{ color: "text.secondary", fontSize: 14 }}>
-                        Management School
-                    </Typography>
-                    <Typography variant="h5">Low</Typography>
-                    <Typography variant="body2">Plumbing</Typography>
-                </CardContent>
-            </Card>
+            {recentTickets.length === 0 ? (
+                <Typography variant="body2" color="text.secondary">
+                    No recent tickets.
+                </Typography>
+            ) : (
+                recentTickets.map((ticket) => (
+                    <Card key={ticket.id} variant="outlined">
+                        <CardContent>
+                            <Typography
+                                sx={{ color: "text.secondary", fontSize: 14 }}
+                            >
+                                {ticket.location}
+                            </Typography>
+                            <Typography variant="h5">
+                                {ticket.urgency}
+                            </Typography>
+                            <Typography variant="body2">
+                                {ticket.category}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                ))
+            )}
             <Button variant="contained" component={Link} to="/admin/table">
                 Full Table
             </Button>
