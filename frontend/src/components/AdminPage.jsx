@@ -1,7 +1,9 @@
+// React Imports
 import { Box, Typography, Button } from "@mui/material";
 import { PieChart } from "@mui/x-charts/PieChart";
 import { Link } from "react-router-dom";
 
+// React Component Imports
 import SummaryCards from "./SummaryCards";
 import SummaryChart from "./SummaryChart";
 import RecentCards from "./RecentCards";

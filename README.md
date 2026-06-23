@@ -6,6 +6,9 @@ Built with scalability and user experience in mind, the application transforms r
 
 ## Frontend
 
+> [!NOTE]
+> I wanted to create this project to practice my frontend, this was done in around 6 days! This was my first ever project creating an actual front-end: I had no experience using these tools and gave myself a deadline to learn as much as I can. Please mind the messy code and file management :)
+
 ### Built with:
 
 - **Framework:** React.js (via Vite)
@@ -14,14 +17,7 @@ Built with scalability and user experience in mind, the application transforms r
 - **Routing:** React Router DOM (HashRouter)
 - **Data Management:** RESTful interactions with a mock backend API ([My JSON Server](https://my-json-server.typicode.com/) + db.json)
 
-> [!CAUTION]
-> Since there is no actual backend, this means there isn't a global database that can be accessed: My JSON Server is strictly read only! #
-> Dummy data was made in db.json, a fake doughnut chart, as well as no actual data in the "Dashboard" section.
-
 ## What I Learned
-
-> [!NOTE]
-> This was my first ever project creating an actual front-end: I had no experience using these tools and gave myself a deadline to learn as much as I can. Please mind the messy code and file management :)
 
 During this project, I gained hands-on experience with advanced React patterns, including:
 
@@ -37,7 +33,3 @@ It is to be expected that this project isn't perfect, and have many ideas for ho
 - Visible error messages for users.
 - Advanced table and graph filtering.
 - Trello-style board with draggable tickets.
-
-## Backend
-
-TBD

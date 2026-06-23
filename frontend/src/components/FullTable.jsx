@@ -1,5 +1,10 @@
-import { Box, Typography, Button } from "@mui/material";
+// Base React Import
 import { Link } from "react-router-dom";
+
+// Material UI Imports
+import { Box, Typography, Button } from "@mui/material";
+
+// React Component Imports
 import Sidebar from "./Sidebar";
 import Database from "./Database";
 

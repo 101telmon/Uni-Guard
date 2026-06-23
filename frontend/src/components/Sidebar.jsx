@@ -1,5 +1,8 @@
-import { Tabs, Tab, Box } from "@mui/material";
+// Base React Import
 import { Link, useLocation, Outlet } from "react-router-dom";
+
+// Material UI + Icon Imports
+import { Tabs, Tab, Box } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import TableViewIcon from "@mui/icons-material/TableView";
 import PersonIcon from "@mui/icons-material/Person";

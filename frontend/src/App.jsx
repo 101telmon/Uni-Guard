@@ -1,5 +1,8 @@
+// Base React Imports
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { Typography } from "@mui/material";
+
+// React Component Imports
 import StudentForm from "./components/StudentForm";
 import FullTable from "./components/FullTable";
 import Profile from "./components/Profile";

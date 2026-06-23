@@ -1,3 +1,5 @@
+// NOTE: May do Profile code later on
+
 import { Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 

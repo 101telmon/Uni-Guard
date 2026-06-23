@@ -1,5 +1,8 @@
-import { CAMPUS_LOCATIONS } from "../utils/constants";
+// Material UI Imports
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
+
+// Constant Import
+import { CAMPUS_LOCATIONS } from "../utils/constants";
 
 export default function IssueContext({ formData, handleChange }) {
     const { location, category } = formData;

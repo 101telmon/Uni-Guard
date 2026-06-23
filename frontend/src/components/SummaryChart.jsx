@@ -1,10 +1,16 @@
-import { PieChart } from "@mui/x-charts/PieChart";
+// Base React Imports
 import { useState, useEffect } from "react";
+
+// React Chart Import
+import { PieChart } from "@mui/x-charts/PieChart";
+
+// API Function Import
 import { fetchTickets } from "../services/api";
 
 export default function SummaryChart() {
     const [chartData, setChartData] = useState([]);
 
+    // 3 colours for 3 categories
     const categoryColors = {
         Plumbing: "#1976d2",
         "IT/Network": "#9c27b0",

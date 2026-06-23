@@ -1,3 +1,7 @@
+// Base React Imports
+import { useState, useEffect } from "react";
+
+// Material UI Imports
 import {
     Box,
     Typography,
@@ -15,14 +19,19 @@ import {
     Tooltip,
 } from "@mui/material";
 import RefreshIcon from "@mui/icons-material/Refresh";
+
+// React Component Import
 import Sidebar from "./Sidebar.jsx";
-import { useState, useEffect } from "react";
-import { fetchTickets, updateTicketStatus } from "../services/api";
+
+// Constant Import
 import { DASHBOARD_REFRESH_RATE } from "../utils/constants.js";
+
+// API Functions Import
+import { fetchTickets, updateTicketStatus } from "../services/api";
 
 export default function AdminDashboard() {
     const [tickets, setTickets] = useState([]);
-    const [cooldown, setCooldown] = useState(false);
+    const [cooldown, setCooldown] = useState(false); // For our refresh button
 
     const loadData = async () => {
         try {
@@ -45,6 +54,7 @@ export default function AdminDashboard() {
         return () => clearInterval(timer);
     }, []);
 
+    // When we change the status of a ticket, we need to update our database
     const handleStatusChange = async (ticketID, newStatus) => {
         try {
             await updateTicketStatus(ticketID, newStatus);
@@ -56,6 +66,7 @@ export default function AdminDashboard() {
         }
     };
 
+    // We update ticket by using its UUID
     const updateByID = (arr, ticketID, newStatus) => {
         return arr.map((ticket) => {
             if (ticket.id === ticketID) {
@@ -66,7 +77,7 @@ export default function AdminDashboard() {
         });
     };
 
-    // Temporary, will improve
+    // Refresh Functions
     const autoRefreshDashboard = () => {
         setInterval(() => {
             fetchTickets();
@@ -82,8 +93,7 @@ export default function AdminDashboard() {
         }, 5000);
     };
 
-    autoRefreshDashboard();
-
+    // Get all of our tickets from our database
     const showTickets = () => {
         return tickets.map((ticket) => (
             <TableRow key={ticket.id}>

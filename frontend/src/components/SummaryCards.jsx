@@ -1,3 +1,4 @@
+// Material UI Imports
 import {
     Stack,
     Card,
@@ -6,7 +7,11 @@ import {
     Button,
     Typography,
 } from "@mui/material";
+
+// Base React Import
 import { useState, useEffect } from "react";
+
+// API Function Import
 import { fetchTickets } from "../services/api";
 
 export default function SummaryCards() {
@@ -25,6 +30,7 @@ export default function SummaryCards() {
         getTickets();
     }, []);
 
+    // Ticket counts for Summary Cards
     const totalTicketCount = tickets.length;
     const highUrgencyCount = tickets.filter(
         (ticket) => ticket.urgency === "High",
@@ -37,7 +43,7 @@ export default function SummaryCards() {
     ).length;
 
     let hotspotLocation = "N/A";
-    let maxCount = 0;
+    let maxLocCount = 0;
     const locationCounts = {};
 
     tickets.forEach((ticket) => {
@@ -48,8 +54,9 @@ export default function SummaryCards() {
         locationCounts[ticket.location] =
             (locationCounts[ticket.location] || 0) + 1;
 
-        if (locationCounts[ticket.location] > maxCount) {
-            maxCount = locationCounts[ticket.location];
+        // If location's count is larger than the current max, then we set a new max and set the new hotspot location.
+        if (locationCounts[ticket.location] > maxLocCount) {
+            maxLocCount = locationCounts[ticket.location];
             hotspotLocation = ticket.location;
         }
     });

@@ -1,3 +1,8 @@
+// Base React Imports
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+// Material UI Imports
 import {
     Stack,
     Card,
@@ -6,8 +11,8 @@ import {
     Button,
     Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+
+// API Function Import
 import { fetchTickets } from "../services/api";
 
 export default function RecentCards() {
