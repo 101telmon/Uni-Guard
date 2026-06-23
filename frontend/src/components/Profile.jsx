@@ -10,7 +10,7 @@ export default function Profile() {
             <Typography variant="h3" color="primary" gutterBottom>
                 UniGuard
             </Typography>
-            <p>Profile will be here.</p>
+            <p>Will not be done yet.</p>
         </>
     );
 }
